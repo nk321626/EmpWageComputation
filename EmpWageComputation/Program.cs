@@ -1,9 +1,6 @@
 ﻿//See https://aka.ms/new-console-template for more information
 using EmpWageComputation;
 
-static void Main(string[] args)
-{
-    Console.WriteLine("Welcome to Employee Wage Computation Program");
-    EmpAttendance.GetEmpAttendance();
-    Console.ReadLine();
-}
+Console.WriteLine("Welcome to Employee Wage Computation Program");
+EmpAttendance.GetEmpAttendance();
+Console.ReadLine();
