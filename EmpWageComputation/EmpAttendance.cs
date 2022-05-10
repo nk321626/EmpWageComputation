@@ -8,56 +8,34 @@ namespace EmpWageComputation
 {
     public class EmpAttendance
     {
-        const int EMP_PRESENT = 1;
-
-        public static void GetEmpAttendance()
+        const int EMP_FULL_TIME = 1;
+        const int EMP_PART_TIME = 2;
+        const int EMP_WAGE_PER_HR = 20;
+        static int daily_Emp_wage = 0;
+        static int empHrs = 0;
+        public static void GetDailyEmpWage()
         {
             Random random = new Random();
-            int randomInput = random.Next(0, 2);
-
-            if (randomInput == EMP_PRESENT)
+            int randomInput = random.Next(0, 3);
+            switch (randomInput)
             {
-                Console.WriteLine("Employee is Present");
-     
-                int empHrs = 0;
-                int empWage_Per_hr = 20;
-                int EMP_FULL_TIME = 1;
-                int EMP_PART_TIME = 0;
-                randomInput = random.Next(0, 2);
-                if (randomInput == EMP_FULL_TIME)
-                {
+                case EMP_FULL_TIME:
                     empHrs = 8;
-                    EMP_FULL_TIME = empHrs * empWage_Per_hr;
-                    Console.WriteLine("Employee Full Time Wage is : " + EMP_FULL_TIME);
-
-
-                }
-                else if (randomInput == EMP_PART_TIME)
-                {
+                    break;
+                    case EMP_PART_TIME:
                     empHrs = 4;
-                    EMP_PART_TIME = empHrs * empWage_Per_hr;
-                    Console.WriteLine("Employee Part Time Wage is : " + EMP_PART_TIME);
-                }
-                else
-                {
-                    //empHrs = 0;
-                }
-
-
- 
+                    break;
+                    default:
+                    empHrs = 0;
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Employe is Absent");
-            }
-
-
-
-
-
+            daily_Emp_wage = empHrs * EMP_WAGE_PER_HR;
+            Console.WriteLine("Emp Wage is :" + daily_Emp_wage);
         }
-     }
+    }
+
 }
+
 
     
 
