@@ -12,14 +12,16 @@ namespace EmpWageComputation
         const int EMP_PART_TIME = 2;
         const int EMP_WAGE_PER_HR = 20;
         const int WORKING_DAYS_PER_MONTH = 20;
+        const int MAX_HRS_PER_MONTH = 100;
         static int daily_Emp_wage = 0;
         static int empHrs = 0;
-        static int monthly_Emp_Wage = 0;
-        static int monthly_Emp_hrs = 0;
+        static int total_Emp_Wage = 0;
+        static int total_Emp_hrs = 0;
+        static int day = 1;
         public static void GetMonthlyEmpWage()
         {
             Random random = new Random();
-            for (int day = 1; day <= WORKING_DAYS_PER_MONTH; day++)
+            while (day <= WORKING_DAYS_PER_MONTH && total_Emp_hrs <= MAX_HRS_PER_MONTH)
             {
                 int randomInput = random.Next(0, 3);
                 switch (randomInput)
@@ -36,10 +38,12 @@ namespace EmpWageComputation
                 }
                 daily_Emp_wage = empHrs * EMP_WAGE_PER_HR;
                 Console.WriteLine("Employee wage for day {0} is: {1} for {2} hrs", day , daily_Emp_wage, empHrs);
-                monthly_Emp_Wage += daily_Emp_wage;
-                monthly_Emp_hrs += empHrs;
+                total_Emp_Wage += daily_Emp_wage;
+                total_Emp_hrs += empHrs;
+                day++;
             }
-            Console.WriteLine("Monthly Employee Wage is: {0} for monthly working hours of {1}", monthly_Emp_Wage,monthly_Emp_hrs);
+            Console.WriteLine("Total Days: {0}, Total working hours:{1}",(day-1), total_Emp_hrs);
+            Console.WriteLine("Total Employee Wage is: " + total_Emp_Wage);
             
         }
 
