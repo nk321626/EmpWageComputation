@@ -2,5 +2,5 @@
 using EmpWageComputation;
 
 Console.WriteLine("Welcome to Employee Wage Computation Program");
-EmpAttendance.GetDailyEmpWage();
+EmpAttendance.GetMonthlyEmpWage();
 Console.ReadLine();
