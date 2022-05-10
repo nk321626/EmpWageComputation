@@ -2,10 +2,17 @@
 using EmpWageComputation;
 
 Console.WriteLine("Welcome to Employee Wage Computation Program\n");
-Console.WriteLine("Dell");
-EmpAttendance.GetMonthlyEmpWage("Dell", 20, 10, 5);
-Console.WriteLine("HP");
-EmpAttendance.GetMonthlyEmpWage("HP", 10, 20, 4);
-Console.WriteLine("Lenovo");
-EmpAttendance.GetMonthlyEmpWage("Lenovo", 15, 15, 3);
+
+EmpAttendance Dell = new EmpAttendance("Dell", 10, 4, 20);
+Dell.GetMonthlyEmpWage();
+Console.WriteLine("Dell".ToString());
+
+EmpAttendance HP = new EmpAttendance("HP", 20, 5, 20);
+HP.GetMonthlyEmpWage();
+Console.WriteLine("HP".ToString());
+
+EmpAttendance Lenovo = new EmpAttendance("Lenovo", 30, 3, 30);
+Lenovo.GetMonthlyEmpWage();
+Console.WriteLine("Lenovo".ToString());
+
 Console.ReadLine();
