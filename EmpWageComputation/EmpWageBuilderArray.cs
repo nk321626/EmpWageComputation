@@ -11,19 +11,23 @@ namespace EmpWageComputation
         public const int IS_FULL_TIME = 2;
         public const int IS_PART_TIME = 1;
 
+
+
+        private int numOfCompany = 0;
+        private List<CompanyEmpWage> companyEmpWageList;
+        private List<CompanyEmpWage> dailyAndTotalWageList;
+        private int dailyEmpWage;
+
+        public EmpWageBuilderList()
+        {
+            companyEmpWageList = new List<CompanyEmpWage>();
+        }
         public void AddCompanyEmpWageToList(string company, int empWagePerHour, int workingDaysPerMonth, int maxHoursPerMonth)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empWagePerHour, workingDaysPerMonth, maxHoursPerMonth);
             companyEmpWageList.Add(companyEmpWage);
         }
 
-        private int numOfCompany = 0;
-        private List<CompanyEmpWage> companyEmpWageList;
-
-        public EmpWageBuilderList()
-        {
-            companyEmpWageList = new List<CompanyEmpWage>();
-        }
 
 
 
@@ -60,9 +64,12 @@ namespace EmpWageComputation
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Total Days: {0}, Total Working Hours: {1}", (totalWorkingDays-1), totalEmpHrs);
-                Console.WriteLine("Total Employee Wage for company " + companyEmpWage.company + " is: " + companyEmpWage.total_Emp_Wage + "\n");
+                totalWorkingDays++;
+                CompanyEmpWage dailyAndTotalWage = new CompanyEmpWage(companyEmpWage.company, dailyEmpWage, companyEmpWage.total_Emp_Wage);
+
             }
+            Console.WriteLine("Total Days: {0}, Total Working Hours: {1}", (totalWorkingDays - 1), totalEmpHrs);
+            Console.WriteLine("Total Employee Wage for company " + companyEmpWage.company + " is: " + companyEmpWage.total_Emp_Wage + "\n");
             return companyEmpWage.total_Emp_Wage;
         }
     }

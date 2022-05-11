@@ -8,6 +8,7 @@
         public int empWagePerHr;
         public int workingDaysPerMonth;
         public int maxHrsPerMonth;
+        public int dailyEmpWage;
         internal int empRatePerHour;
         internal int nofoWorkingDays;
         private int empWagePerHour;
@@ -27,6 +28,12 @@
             this.empWagePerHr = empWagePerHr;
             this.workingDaysPerMonth = workingDaysPerMonth;
             this.maxHrsPerMonth = maxHrsPerMonth;
+        }
+        public CompanyEmpWage(string company, int dailyEmpWage, int total_Emp_Wage)
+        {
+            this.company = company;
+            this.dailyEmpWage = dailyEmpWage;
+            this.total_Emp_Wage = total_Emp_Wage;
         }
 
         public void setTotalEmpWage(int totalEmpWage)
