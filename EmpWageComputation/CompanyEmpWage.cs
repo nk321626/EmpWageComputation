@@ -20,6 +20,7 @@
             this.empWagePerHour = empWagePerHour;
             this.workingDaysPerMonth = workingDaysPerMonth;
             this.maxHoursPerMonth = maxHoursPerMonth;
+            this.total_Emp_Wage = total_Emp_Wage;
         }
 
         public CompanyEmpWage(string company, int empWagePerHr, int workingDaysPerMonth, int maxHrsPerMonth, int maxHoursPerMonth)
